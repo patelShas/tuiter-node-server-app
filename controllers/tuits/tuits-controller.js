@@ -15,7 +15,8 @@ const findTuits = async (req, res) => {
         const tuits = await tuitsDao.findTuits()
         res.json(tuits);
     } catch (err) {
-        res.sendStatus(503);
+        name = err.name
+        res.send(503).json({name : err.message });
     }
 }
 
